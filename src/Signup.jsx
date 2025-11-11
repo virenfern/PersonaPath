@@ -1,40 +1,70 @@
 import React, { useState } from 'react';
-import './Signup.css';
 import { useNavigate } from 'react-router-dom';
-
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000';
+import './Signup.css';
 
 export default function Signup() {
   const navigate = useNavigate();
+
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   const goHome = () => navigate('/', { replace: true });
+  const goToLanding = () => navigate('/landing_test', { replace: true });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // TODO: add validation and API call later
+    goToLanding();
+  };
 
   return (
     <div className="auth-page">
       <div className="auth-card">
         <div className="auth-left">
-          <button
-            type="button"
-            className="back-btn"
-            onClick={goHome}
-          >
+          <button type="button" className="back-btn" onClick={goHome}>
             ← Back
           </button>
 
           <h1>SIGN UP</h1>
           <hr className="divider" />
-          <form className="auth-form" onSubmit={(e) => e.preventDefault()}>
-            <input className="auth-input" name="username" placeholder="Username" />
-            <input className="auth-input" name="email" type="email" placeholder="Email address" />
-            <input className="auth-input" name="password" type="password" placeholder="Password" />
-            <input className="auth-input" name="confirmPassword" type="password" placeholder="Confirm Password" />
-            <button className="auth-btn" type="submit">Sign Up</button>
+
+          <form className="auth-form" onSubmit={handleSubmit}>
+            <input
+              className="auth-input"
+              name="username"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              className="auth-input"
+              name="email"
+              type="email"
+              placeholder="Email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              className="auth-input"
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <input
+              className="auth-input"
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            <button className="auth-btn" type="submit">
+              Sign Up
+            </button>
           </form>
         </div>
 
