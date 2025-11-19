@@ -7,7 +7,7 @@ import resultsRoutes from './routes/results.js';
 import palmRoutes from './routes/palm.js';
 import readingRoutes from './routes/reading.js';
 
-dotenv.config();
+dotenv.config();//Loads environment variables from a .env file into process.env
 
 const app = express();
 
