@@ -1,7 +1,7 @@
 # PersonaPath
 
 A full-stack web application that combines personality assessment tools including MBTI testing, horoscope analysis, and palm reading. Users can create accounts, take personality tests, and receive personalized insights based on multiple personality assessment methodologies.
-This project was a colloboration of three members including myself.
+This project was a collaboration of three members including myself.
 
 ## Features
 
